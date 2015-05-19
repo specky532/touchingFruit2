@@ -55,31 +55,31 @@ while interrupted == False:
 
 #Run main loop
 while True:
-	try:
-
-		#Detect input
-		if (GPIO.input(7)): # Interupt pin is high
-			pass
-		else: # Interupt pin is low
-			touchData = mpr121.readData(0x5a) #Take data from SDA Line
-			for i in range(6): #Checks each touch value
-				if (touchData & (1<<i)):
-					if (touches[i] == 0):
-						print( 'Pin ' + str(i) + ' was just touched') #Track changes, can be commented out
-						if touches[0] == 1:
-                            test.play()
-                            print('test worked')
-                        else:
-                            drumKit[i].play()	
-						drumKit[i].play()	
-					touches[i] = 1;
-				else:
-					if (touches[i] == 1):
-						print( 'Pin ' + str(i) + ' was just released')
-					touches[i] = 0;
-	except KeyboardInterrupt:
-		print "Thank you for using Touching Fruit!!!"
-		interrupted = True
+        try:
+        #Detect input
+                if (GPIO.input(7)): # Interupt pin is high
+                        pass
+                else: # Interupt pin is low
+                        touchData = mpr121.readData(0x5a) #Take data from SDA Line
+                        for i in range(6): #Checks each touch value
+                                if (touchData & (1<<i)):
+                                        
+                                        if (touches[i] == 0):
+                                                print( 'Pin ' + str(i) + ' was just touched') #Track changes, can be commented out
+                                                if touches[0] == 1:
+                                                    test.play()
+                                                    print('test worked')
+                                                else:
+                                                    drumKit[i].play
+                                                #drumKit[i].play()	
+                                        touches[i] = 1;
+                                else:
+                                        if (touches[i] == 1):
+                                                print( 'Pin ' + str(i) + ' was just released')
+                                        touches[i] = 0;
+except KeyboardInterrupt:
+        print "Thank you for using Touching Fruit!!!"
+        interrupted = True
 
 
 
