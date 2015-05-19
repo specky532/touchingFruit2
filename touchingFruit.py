@@ -33,14 +33,12 @@ clap = pygame.mixer.Sound('samples/clap.wav')
 clap.set_volume(.65);
 cymbal = pygame.mixer.Sound('samples/cymbal.wav')
 cymbal.set_volume(.65);
-<<<<<<< HEAD
+
 
 test = pygyame.mixer.Sound('samples/other/test.wav')
 test.set_volume(.65)
 
 
-=======
->>>>>>> 8b3ef5c1ea72b575c0dfd215c06b7dc78da8357b
 drumKit.append(kick)
 drumKit.append(snare)
 drumKit.append(openhh)
@@ -50,16 +48,13 @@ drumKit.append(cymbal)
 
 # Track touches
 touches = [0,0,0,0,0,0];
-
-<<<<<<< HEAD
 interrupted = False
 
 #Run main loop
 while interrupted == False:
-=======
+
 #Run main loop
 while True:
->>>>>>> 8b3ef5c1ea72b575c0dfd215c06b7dc78da8357b
 	try:
 
 		#Detect input
@@ -71,29 +66,12 @@ while True:
 				if (touchData & (1<<i)):
 					if (touches[i] == 0):
 						print( 'Pin ' + str(i) + ' was just touched') #Track changes, can be commented out
-<<<<<<< HEAD
-                                                                                                if touches[0] == 1:
-                                                                                                        test.play()
-                                                                                                        print('test worked')
-                                                                                                else:
-                                                                                                        drumKit[i].play()	
-=======
+						if touches[0] == 1:
+                            test.play()
+                            print('test worked')
+                        else:
+                            drumKit[i].play()	
 						drumKit[i].play()	
->>>>>>> 8b3ef5c1ea72b575c0dfd215c06b7dc78da8357b
-
-						#if (i == 0):
-						#	kick.play()
-						#elif (i == 1):
-						#	snare.play()
-						#elif (i == 2):
-						#	openhh.play()
-						#elif (i == 3):
-						#	closedhh.play()
-						#elif (i == 4):
-						#	clap.play()
-						#elif (i == 5):
-						#	cymbal.play()
-
 					touches[i] = 1;
 				else:
 					if (touches[i] == 1):
@@ -101,10 +79,8 @@ while True:
 					touches[i] = 0;
 	except KeyboardInterrupt:
 		print "Thank you for using Touching Fruit!!!"
-<<<<<<< HEAD
 		interrupted = True
-=======
->>>>>>> 8b3ef5c1ea72b575c0dfd215c06b7dc78da8357b
+
 
 
 
