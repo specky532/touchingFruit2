@@ -55,7 +55,7 @@ ATO_CFGT = 0x7F
 
 # Global Constants
 
-TOU_THRESH = 0x06
+TOU_THRESH = 0x0F
 REL_THRESH = 0x0A
 
 # Routines
@@ -130,6 +130,14 @@ def setup(address):
 	# Set ESI2
 
 	bus.write_byte_data(address, FIL_CFG, 0x04)
+
+	# Section F
+	# Set auto configure
+	bus.write_byte_data(address, ATO_CFG0, 0x0B)
+	bus.write_byte_data(address, ATO_CFGU, 0x9C)
+	bus.write_byte_data(address, ATO_CFGL, 0x65)
+	bus.write_byte_data(address, ATO_CFGT, 0x8C)
+
 
 	# Section E
 	# Electrode Configuration
